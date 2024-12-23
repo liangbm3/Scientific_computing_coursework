@@ -1,0 +1,11 @@
+% 系统常数
+N_R=4;   % 接收天线数
+N_T=4;   % 发送天线数
+N_frame=8;
+bit_stream_tx=randi([0,1],N_T,N_frame);
+c=round(bit_stream_tx-0.5);
+H=randn(N_R,N_T)
+v=sqrt(1)*randn(N_R,N_frame)
+x=H*c+v
+W=inv(H'*H)*H'
+x_hat=W*x
